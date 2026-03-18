@@ -1,0 +1,26 @@
+# Ignore compiled binary files
+*.o
+*.so
+*.exe
+*.dll
+*.class
+
+# Maven
+/target/
+
+# IDE
+/.idea/
+*.iml
+/.vscode/
+
+# Build / output
+/bin/
+/out/
+
+# Logs / temp
+*.log
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
