@@ -26,7 +26,6 @@ public class Stack<T> {
         return temp.value;
     }
 
-
     private static final class Node<T> {
         private final T value;
         private Node<T> next;
