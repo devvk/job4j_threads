@@ -14,8 +14,6 @@ public class CASStack<T> {
         do {
             ref = head.get();
             temp.next = ref;
-            // если head всё ещё равен ref → заменить на temp
-            // если кто-то уже изменил head → НЕ менять
         } while (!head.compareAndSet(ref, temp));
     }
 
