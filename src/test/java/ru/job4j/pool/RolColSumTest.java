@@ -37,6 +37,7 @@ class RolColSumTest {
         Sums[] result = RolColSum.asyncSum(matrix);
         assertThat(result).isEqualTo(expected);
     }
+
     @Test
     void whenSyncAndAsyncAreEqual() {
         int[][] matrix = {
