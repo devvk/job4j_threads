@@ -13,17 +13,13 @@ class RolColSumTest {
                 {4, 5, 6},
                 {7, 8, 9}
         };
-
-        RolColSum.Sums[] result = RolColSum.sum(matrix);
-
-        assertThat(result[0].getRowSum()).isEqualTo(6);
-        assertThat(result[0].getColSum()).isEqualTo(12);
-
-        assertThat(result[1].getRowSum()).isEqualTo(15);
-        assertThat(result[1].getColSum()).isEqualTo(15);
-
-        assertThat(result[2].getRowSum()).isEqualTo(24);
-        assertThat(result[2].getColSum()).isEqualTo(18);
+        Sums[] expected = {
+                new Sums(6, 12),
+                new Sums(15, 15),
+                new Sums(24, 18)
+        };
+        Sums[] result = RolColSum.sum(matrix);
+        assertThat(result).isEqualTo(expected);
     }
 
     @Test
@@ -33,32 +29,22 @@ class RolColSumTest {
                 {4, 5, 6},
                 {7, 8, 9}
         };
-
-        RolColSum.Sums[] result = RolColSum.asyncSum(matrix);
-
-        assertThat(result[0].getRowSum()).isEqualTo(6);
-        assertThat(result[0].getColSum()).isEqualTo(12);
-
-        assertThat(result[1].getRowSum()).isEqualTo(15);
-        assertThat(result[1].getColSum()).isEqualTo(15);
-
-        assertThat(result[2].getRowSum()).isEqualTo(24);
-        assertThat(result[2].getColSum()).isEqualTo(18);
+        Sums[] expected = {
+                new Sums(6, 12),
+                new Sums(15, 15),
+                new Sums(24, 18)
+        };
+        Sums[] result = RolColSum.asyncSum(matrix);
+        assertThat(result).isEqualTo(expected);
     }
-
     @Test
     void whenSyncAndAsyncAreEqual() {
         int[][] matrix = {
                 {5, 1},
                 {2, 3}
         };
-
-        RolColSum.Sums[] sync = RolColSum.sum(matrix);
-        RolColSum.Sums[] async = RolColSum.asyncSum(matrix);
-
-        for (int i = 0; i < matrix.length; i++) {
-            assertThat(async[i].getRowSum()).isEqualTo(sync[i].getRowSum());
-            assertThat(async[i].getColSum()).isEqualTo(sync[i].getColSum());
-        }
+        Sums[] sync = RolColSum.sum(matrix);
+        Sums[] async = RolColSum.asyncSum(matrix);
+        assertThat(async).isEqualTo(sync);
     }
 }
